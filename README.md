@@ -1,5 +1,26 @@
 # eth_smartContract
+
 ERC721 test Smart Contract for Metamask app.
+
+Install Hardhat, is a development environment to compile, deploy, test, and debug your Ethereum software: 
+
+>$ npm install --save-dev hardhat 
+
+and install the dotenv package:
+
+>$ npm install dotenv --save
+
+Install Ethers.js, is a library that makes it easier to interact and make requests to Ethreum by wrapping standard JSON-RPC methods with more user friendly methods:
+
+>$ npm install --save-dev @nomiclabs/hardhat-ethers 'ethers@^5.0.0'
+
+*Compile NFT smart contract code, which based off of the OpenZepplin library's ERC721 implementation*
+
+>$ npm install @openzeppelin/contracts@3.1.0-solc-0.7 to install the OpenZepplin contracts library
+
+Run compile Soidity code:
+
+>$ npx hardhat compile
 
 *Deploy ERC721 smart-contract*
 
