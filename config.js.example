@@ -1,0 +1,9 @@
+var config = {};
+
+config.API_URL = "url";
+config.PRIVATE_KEY = "owner_key";
+config.PUBLIC_KEY = "owner_address";
+config.PIN_URL = "ipfs_pin";
+config.CONTRACT_ADDRESS = "address -> after run deployee contract";
+
+module.exports = config;
