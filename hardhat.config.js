@@ -1,6 +1,6 @@
 async function main() {
 require("@nomiclabs/hardhat-ethers");
-var config = require('./config.js.example');
+var config = require('./config.js');
 module.exports = {
   defaultNetwork: "rinkeby",
   networks: {

@@ -1,5 +1,5 @@
 async function main() {
-    var config = require('../config.js.example');
+    var config = require('../config.js');
     const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
     const web3 = createAlchemyWeb3(config.API_URL);
     const myAddress = config.PUBLIC_KEY; //TODO: replace this address with your own public address
