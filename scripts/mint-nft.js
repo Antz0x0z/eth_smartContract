@@ -1,6 +1,5 @@
 async function main() {
 var config = require('../config.js');
-
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 const web3 = new createAlchemyWeb3(config.API_URL);
 

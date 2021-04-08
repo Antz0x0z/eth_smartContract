@@ -6,13 +6,20 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
+contract OwnableDelegateProxy {}
+
+contract ProxyRegistry {
+    mapping(address => OwnableDelegateProxy) public proxies;
+}
 
 contract MyNFT is ERC721, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
+    mapping(string => uint8) hashes;
     mapping (address => mapping (address => uint256)) internal allowed;
 
-    constructor() ERC721 ("TestNFT", "TestUNIQUE") {}
+    constructor() ERC721 ("T.NFT(m)", "T.UNIQUE(m)") {}
+    
 
     function mintNFT(address recipient, string memory tokenURI) public onlyOwner returns (uint256){
         _tokenIds.increment();
