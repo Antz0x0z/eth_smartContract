@@ -2,19 +2,24 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.7.3;
 
-// import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
+contract OwnableDelegateProxy {}
+
+contract ProxyRegistry {
+    mapping(address => OwnableDelegateProxy) public proxies;
+}
 
 contract MyNFT is ERC721, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
+    mapping(string => uint8) hashes;
     mapping (address => mapping (address => uint256)) internal allowed;
+
+    constructor() ERC721 ("T.NFT(m)", "T.UNIQUE(m)") {}
     
-    
-    constructor() ERC721 ("TestNFT", "TestUNIQUE") {}
 
     function mintNFT(address recipient, string memory tokenURI) public onlyOwner returns (uint256){
         _tokenIds.increment();
@@ -29,6 +34,7 @@ contract MyNFT is ERC721, Ownable {
         require(_isApprovedOrOwner(_msgSender(), tokenID), "ERC721: transfer caller is not owner nor approved");
 
         _transfer(sender, recipient, tokenID);
+        emit Transfer(msg.sender, recipient, tokenID);
     }
 
 }
