@@ -45,3 +45,12 @@ The hash of your transaction is: <0x...>
 Check https://rinkeby.etherscan.io/ to view the status of your transaction!
 
 *See NFT-tokens to the Metamask app (Ethereum Rinkeby-testnet).*
+
+*Transfer NFT-tokens*
+
+Transfer your NFT (from TokenID) to other ethereum address in the command line run:
+
+>$ node scripts/transfer-nft.js
+
+You should then see something like:
+The hash of your transaction is: <0x...>
