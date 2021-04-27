@@ -19,7 +19,7 @@ async function transferNFT(tokenID) {
     'to': contractAddress,
     'nonce': nonce,
     'gas': 500000,
-    'data': nftContract.methods.transferNFT(sender, recipient, tokenID).encodeABI()
+    'data': nftContract.methods.transferERC721(sender, recipient, tokenID).encodeABI()
   };
 
   const signPromise = web3.eth.accounts.signTransaction(tx, config.PRIVATE_KEY);

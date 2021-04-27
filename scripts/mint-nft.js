@@ -15,7 +15,7 @@ async function mintNFT(tokenURI) {
     'to': contractAddress,
     'nonce': nonce,
     'gas': 500000,
-    'data': nftContract.methods.mintNFT(config.PUBLIC_KEY, tokenURI).encodeABI()
+    'data': nftContract.methods.mintERC721(config.PUBLIC_KEY, tokenURI).encodeABI()
   };
 
   const signPromise = web3.eth.accounts.signTransaction(tx, config.PRIVATE_KEY);
