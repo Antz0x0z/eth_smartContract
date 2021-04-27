@@ -6,6 +6,6 @@ config.PUBLIC_KEY = "owner_address";
 config.PIN_URL = "ipfs_pin"; // for example https://ipfs.io/ipfs/<PIN>
 config.CONTRACT_ADDRESS = "address -> after run deployee contract";
 config.INFURA_API_KEY = "<your_key>";
-config.RECIPIENT = "resipient_address";
+config.RECIPIENT = "recipient_address";
 
 module.exports = config;
