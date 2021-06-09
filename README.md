@@ -54,3 +54,19 @@ Transfer your NFT (from TokenID) to other ethereum address in the command line r
 
 You should then see something like:
 The hash of your transaction is: <0x...>
+
+*Send ERC20 Ethereum tokens to contract address*
+
+Send your ERC20 Ethereum tokens (0.1 ETH) to contract address in the command line run:
+
+>$ node scripts/send-to-contract.js
+
+You should then see something like: The hash of your transaction is: <0x...> and the balance of the contract address will be replenished with the transferred amount (0.1 ETH)
+
+*Receiving ERC20 Ethereum tokens from the address of the contract to the address of the owner of the contract (withdrawal of funds is limited only by the address of the owner!)*
+
+Receiving ERC20 Ethereum tokens (0.1 ETH) from the address of the contract in the command line run:
+
+>$ node scripts/receive-from-contract.js
+
+You should then see something like: The hash of your transaction is: <0x...> and the balance of the owner address will be replenished with the transferred amount (0.1 ETH)
