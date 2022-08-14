@@ -36,7 +36,7 @@
   "dependencies": {
     "@0xcert/ethereum-erc721": "^2.4.0",
     "@alch/alchemy-web3": "^1.0.2",
-    "@openzeppelin/contracts": "^3.1.0-solc-0.7",
+    "@openzeppelin/contracts": "^4.7.2",
     "abi-decoder": "^2.4.0",
     "common-js": "^0.3.8",
     "dotenv": "^8.2.0",
