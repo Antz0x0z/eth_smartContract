@@ -1,6 +1,6 @@
 const IPFS = require("nano-ipfs-store");
 const ipfs = IPFS.at("https://ipfs.infura.io:5001");
-const json = require("../MyNFT.json");
+const json = require("./MyNFT.json");
 
 (async () => {
 

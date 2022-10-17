@@ -1,14 +1,14 @@
 async function transferToken() {
-var config = require('../config.js');
+let config = require('./config.js');
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 const web3 = new createAlchemyWeb3(config.API_URL);
-const contract = require("../artifacts/contracts/MyNFT.sol/MyNFT.json");
+const contract = require("../abis/MyNFT.json");
 const contractAddress = config.CONTRACT_ADDRESS;
 const nftContract = new web3.eth.Contract(contract.abi, contractAddress);
 const sender = config.PUBLIC_KEY;
 const recipient = config.RECIPIENT;
 
-var tokenID = " "; // variable token_id
+let tokenID = " "; // variable token_id
 
 async function transferNFT(tokenID) {
   const nonce = await web3.eth.getTransactionCount(sender, 'latest'); //get latest nonce

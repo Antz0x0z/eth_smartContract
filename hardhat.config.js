@@ -1,35 +1,74 @@
-async function main() {
+let config = require("./config");
+
+require("@nomiclabs/hardhat-etherscan");
+require("@nomiclabs/hardhat-waffle");
 require("@nomiclabs/hardhat-ethers");
-var config = require('./config.js');
+require("hardhat-deploy");
+require("hardhat-gas-reporter");
+require("hardhat-abi-exporter");
+require("solidity-coverage");
+
+const mnemonic = config.WALLET_MNEMONIC;
+const optimizerEnabled = config.OPTIMIZER_ENABLED === 'true';
+
 module.exports = {
-  defaultNetwork: "rinkeby",
-  networks: {
-    hardhat: {
-    },
-    rinkeby: {
-      url: config.API_URL,
-      accounts: [config.PRIVATE_KEY]
-    }
-  },
   solidity: {
-    version: "0.7.3",
-    settings: {
-      optimizer: {
-        enabled: true,
-        runs: 200
-      }
-    }
+    compilers: [
+      {
+        version: "0.8.4",
+        settings: {
+          optimizer: {
+            enabled: optimizerEnabled,
+            runs: 200,
+          },
+        },
+        evmVersion: "istanbul",
+      },
+    ],
   },
   paths: {
     sources: "./contracts",
     tests: "./test",
     cache: "./cache",
-    artifacts: "./artifacts"
+    artifacts: "./build/contracts",
+    deploy: "./deploy",
+    deployments: "./deployments",
   },
-  mocha: {
-    timeout: 20000
+  networks: {
+    hardhat: {
+      blockGasLimit: 200000000,
+      allowUnlimitedContractSize: true,
+      gasPrice: 60e9,
+    },
+    localhost: {
+      blockGasLimit: 200000000,
+      allowUnlimitedContractSize: true,
+      gasPrice: 60e9,
+    },
+    goerli: {
+      url: config.API_URL,
+      gasPrice: 1e9,
+      accounts:  {
+        mnemonic,
+        initialIndex: 0,
+        count: 10,
+      },
+    
+    },
+    /* goerli: {
+      url: `https://goerli.infura.io/v3/${config.INFURA_GOERLI_APIKEY}`,
+      gasPrice: 1e9,
+      accounts: mnemonic
+    }, */
+    mumbai: {
+      url: `https://matic-mumbai.chainstacklabs.com/`,
+      gasPrice: 1e9,
+      accounts: {
+        mnemonic,
+        initialIndex: 0,
+        count: 10,
+      },
+      chainId: 80001,
+    },
   }
 }
-}
-
-main();
